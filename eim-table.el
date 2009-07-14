@@ -138,28 +138,27 @@
                     (setq user-buffer (cdr (assoc "buffer" buf)))))
               buflist)
         (unless user-buffer
-          (save-excursion
-            (setq file (eim-read-file ufile (format eim-buffer-name-format
-                                                    (eim-package-name))))
-            (set-buffer (cdar file))
-            (eim-table-add-user-char)
-            (nconc buflist (list file))
-            (eim-set-option 'table-user-file (cons ufile (cdar file)))))))))
+          (setq file (eim-read-file ufile (format eim-buffer-name-format
+                                                  (eim-package-name))))
+          (eim-make-char-table (eim-table-get-user-char (cdar file)) (eim-get-option 'char-table))
+          (nconc buflist (list file))
+          (eim-set-option 'table-user-file (cons ufile (cdar file))))))))
 
-(defun eim-table-add-user-char ()
+(defun eim-table-get-user-char (buf)
   "Add user characters. Currently eim-wb may not contain all
 chinese characters, so if you want more characters to input, you
 can add here."
   (let (line chars)
     (save-excursion
+      (set-buffer buf)
       (goto-char (point-min))
       (while (not (eobp))
         (setq line (eim-line-content))
         (forward-line 1)
         (if (and (= (length (cadr line)) 1)
                  (> (length (car line)) 2))
-            (push  line chars)))
-      (eim-make-char-table chars (eim-get-option 'char-table)))))
+            (push line chars)))
+      chars)))
 
 (defun eim-table-load-history (his-file)
   (when (and his-file (file-exists-p his-file))

@@ -257,16 +257,17 @@ OTHER-PROPERTIES 是一些其它的属性，比如，上次的位置，用来输
       buflist)))
 
 (defun eim-read-file (file name &optional read-param)
-  (let* (param region)
-    (set-buffer (generate-new-buffer name))
-    (insert-file-contents file)
-    (if read-param
-        (setq param (eim-read-parameters)))
-    (setq region (eim-section-region "Table"))
-    (narrow-to-region (car region) (cdr region))
-    `(("buffer" . ,(current-buffer))
-      ("param" . ,param)
-      ("file" . ,file))))
+  (let (param region)
+    (save-excursion
+      (set-buffer (generate-new-buffer name))
+      (insert-file-contents file)
+      (if read-param
+          (setq param (eim-read-parameters)))
+      (setq region (eim-section-region "Table"))
+      (narrow-to-region (car region) (cdr region))
+      `(("buffer" . ,(current-buffer))
+        ("param" . ,param)
+        ("file" . ,file)))))
 
 (defun eim-section-region (sec)
   "得到一个部分的起点和终点位置，忽略最后的空行"
