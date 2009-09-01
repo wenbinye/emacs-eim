@@ -13658,8 +13658,6 @@ k-m-j-sh 开门见山
 k-m-l 喀麦隆 科摩洛
 k-m-sh 开幕式
 k-n 可能 苦难 苦恼 狂怒 矿难 困难
-k-n---- 可能neng
-k-n------- 可能ke neng
 k-n-d 肯尼迪
 k-n-d-g 康涅狄格
 k-n-er 康奈尔
@@ -14034,8 +14032,6 @@ ke-mo-luo 科摩洛
 ke-mu 科目
 ke-na-ke-li 科纳克里
 ke-neng 可能
-ke-neng---- 可能neng
-ke-neng------- 可能ke neng
 ke-neng-xing 可能性
 ke-ni-xing 可逆性
 ke-pa 可怕
@@ -29683,8 +29679,8 @@ zhou-zhi 周至
 zhou-zhuan 周转
 zhou-zong-li 周总理
 zhu 祝 橥 朱 主 着 住 术 注 属 珠 助 柱 逐 猪 诸 烛 嘱 竹 蛛 轴 拄 株 驻 筑 蠩 麈 舳 蠋 翥 箸 馵 竺 瘃 蓫 铢 炷 槠 杼 羜 陼 渚 柷 洙 潴 紵 苎 窋 茱 邾 砫 跦 瞩 煮 诛 侏 伫 铸 贮 蛀 著 褚 躅 疰
-zhu-- 朱镕基
-zhu--ji 朱镕基
+zhu-r-j 朱镕基
+zhu-r-ji 朱镕基
 zhu-ban 主办
 zhu-bao 珠宝
 zhu-bei 竹北
